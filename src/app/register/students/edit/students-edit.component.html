@@ -1,0 +1,32 @@
+<po-page-edit p-title="Edição de Aluno" [p-breadcrumb]="newBreadcrumb" (p-cancel)="cancel()"
+    (p-save)="registerStudent()">
+
+    <form [formGroup]="studentsEditForm">
+        <div class="po-row">
+            <po-input class="po-md-6"  [(ngModel)]="nome"  formControlName="nome"  p-label="Nome do Aluno" p-required> </po-input>
+
+            <po-number class="po-md-6" p-disabled="true" [(ngModel)]="matricula"  formControlName="matricula" p-clean p-label="Matricula" p-required></po-number>
+
+            <po-input class="po-md-6"  p-disabled="true" formControlName="email"  p-label="E-mail" p-required> </po-input>
+        </div>
+
+        <div class="po-row">
+            <po-select class="po-md-6"  [(ngModel)]="instituicao"  formControlName="instituicao" p-label="Instituicao" [p-options]="opcoesInstituicao" p-required> </po-select>
+
+            <po-multiselect class="po-md-6" [(ngModel)]="curso" formControlName="curso" p-label="Curso" [p-options]="opcoesCurso" p-required> </po-multiselect>
+
+            <po-multiselect class="po-md-6"  [(ngModel)]="turma"  formControlName="turma" p-label="Turma" [p-options]="opcoesTurma" p-required> </po-multiselect>
+
+            <po-multiselect class="po-md-6" [(ngModel)]="disciplina"  formControlName="disciplina"  p-label="Disciplinas" [p-options]="opcoesDisciplina" p-required> </po-multiselect> 
+        </div>
+    </form>
+    <div class="po-row">
+        <po-info
+             class="po-md-12"
+             p-label-size="16px"
+             p-label="Selecionar imagens">
+        </po-info>
+        <input #files class="inputfile po-md-12" type="file"  accpet="*.png.jpg" (change)="upload($event)" multiple=true>
+    </div>
+
+</po-page-edit>

@@ -1,0 +1,49 @@
+<po-page-edit p-title="Cadastro de Responsável" [p-breadcrumb]="breadcrumb"
+    (p-save)="registerResponsible()">
+    
+    <po-tabs>
+        <po-tab p-active p-label="Novo Responsável">
+            <form [formGroup]="responsibleForm">
+                <div class="po-row">
+                    <po-input class="po-md-6" name="nome" formControlName="nome" p-clean p-label="Nome do Responsável"
+                        p-required> </po-input>
+
+                    <po-input class="po-md-6" name="cpf" p-mask="999.999.999-99" p-mask-format="true" formControlName="cpf" p-clean p-label="CPF" p-required>
+                    </po-input>
+
+                    <po-input class="po-md-6"  formControlName="email"  p-label="E-mail" p-required> </po-input>
+                </div>
+
+                <div class="po-row">
+                    <po-multiselect class="po-md-6" formControlName="instituicao" name="instituicao"
+                        p-label="Instituicao" [p-options]="opcoesInstituicao"> </po-multiselect>
+
+                    <po-multiselect class="po-md-6" formControlName="curso" name="curso" p-label="Curso"
+                        [p-options]="opcoesCurso"> </po-multiselect>
+
+                    <po-multiselect class="po-md-6" formControlName="turma" name="turma" p-label="Turma"
+                        [p-options]="opcoesTurma"> </po-multiselect>
+                </div>
+
+                <div class="po-row">
+                    <po-checkbox-group formControlName="periodo" class="po-md-6" name="periodo" p-columns="3"
+                        p-label="Período" [p-options]="[
+                    { value: '1', label: 'Matutino' },
+                    { value: '2', label: 'Vespertino' },
+                    { value: '3', label: 'Noturno' }
+                    ]">
+                    </po-checkbox-group>
+                </div>
+            </form>
+        </po-tab>
+        <po-tab p-label="Responsáveis Cadastrados">
+            <po-table class="po-md-12" p-striped="true" p-hide-columns-manager p-sort="true"
+                [p-columns]="columnsResponsibleList" [p-items]="itemsResponsibleList">
+            </po-table>
+        </po-tab>
+    </po-tabs>
+    <po-modal #modal [p-primary-action]="primaryAction" [p-secondary-action]="secondaryAction" p-title="Excluir Curso">
+        Deseja excluir o responsável selecionado?
+    </po-modal>
+
+</po-page-edit>

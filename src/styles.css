@@ -1,0 +1,342 @@
+.labels {
+    font-family: NunitoSans-Bold,sans-serif;
+    font-size: 14px;
+    line-height: 24px;
+    color: #4f6d7a;
+    vertical-align: sub;
+    display: table-cell;
+    width: 100%;
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+}
+
+.po-upload {
+    position: relative;
+    margin-bottom: 5px;
+}
+
+.labels {
+  font-family: Roboto;
+  font-size: 16px;
+  line-height: 24px;
+  color: #000000;
+  vertical-align: sub;
+  width: 100%;
+  margin-top: 10px !important;
+  margin-bottom: 10px !important;
+}
+.cancel-button {
+  float: right;
+}
+
+.save-button {
+  float:right;
+  margin-left: 5px;
+}
+
+.info {
+  color: #1E9585;
+  font-weight: 400;
+  box-sizing: border-box;
+  display: block;
+  font-family: NunitoSans-Bold,sans-serif;
+  font-size: 16px;
+  line-height: 16px;
+  font-weight: bold;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.po-menu-item-selected, .po-menu-item-selected:hover {
+  border-left: 7px solid #00695c !important;
+}
+
+.po-menu-inner {
+  BACKGROUND-COLOR: #f3f3f3;
+}
+
+.po-menu-filter-container {
+  background-color: #f3f3f3;
+}
+
+.inputfile + label {
+  font-family: var(--font-family-theme-bold),sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  background-color: var(--color-button-background-color);
+  border: 1px solid var(--color-button-border);
+  border-radius: 3px;
+  color: var(--color-button-color);
+  display: inline-block;
+  height: 44px;
+  padding: 0 16px;
+  text-align: center;
+  cursor: pointer;
+}
+
+input[type='file'] {
+  color: transparent;
+}
+
+.delete {
+  font-size: 24px;
+  color: #00695c;
+  cursor: pointer;
+}
+
+.inputfile:focus + label,
+.inputfile + label:hover {
+  background-color: red;
+}
+
+:root {
+    /* Cor do background da linha da tabela */
+  --color-primary-light-95: #fcf6f9;
+
+  /* Borda inferior da Table Header */
+  --color-primary-light-80: #f5dbe8;
+
+  /* Scroll (opacidade de 50%) */
+  --color-primary-alpha-50: rgba(201, 53, 125, 0.5);
+
+  /* Botão primário, Links, Cor da borda do input selecionado, Cor da borda do botão secundário */
+  --color-primary: #1E9585;
+
+  /* Hover do Botão primário, Links, Cor da borda do botão secundário */
+  --color-primary-dark-20:  #3a506b;
+
+  /* Pressed do Botão primário, Links, Cor da borda do botão secundário */
+  --color-primary-dark-40: #3a506b;
+
+  /* Secondary */
+  --color-secondary: #00695c;
+
+  --color-secondary-dark-20: rgba(1, 132, 119);
+
+  --color-secondary-dark-40: rgba(1, 115, 104);
+
+  /* Overlay de Modal e Menu (70% de opacidade) */
+  --color-secondary-dark-60-alpha-70: rgba(59, 28, 74, 0.7);
+
+  --color-secondary-dark-60: #3b1c4a;
+
+  /* Tertiary */
+
+  /* Cor do background da linha de arquivo em carregamento (Upload) */
+  --color-tertiary-light-90: #fffaef;
+
+  /* Borda esquerda do menu lateral selecionado, Tab selecionada, Card em destaque */
+  --color-tertiary: #82e0f7;
+
+  /* Cor de gráficos, botão do disclaimer */
+  --color-tertiary-dark-5: #5dafc3;
+
+  --color-tertiary-dark-40: #5298aa;
+
+  --color-tertiary-dark-60: #488695;
+
+  --color-white: #ffffff;
+
+  --color-white-alpha-30: rgba(255, 255, 255, 0.3);
+
+  /* Background da página, Background da linha selecionada */
+  --color-neutral-light-98: #fbfbfb;
+
+  /* Borda inferior de item de tabela, Base do Slider, Background do Input inativo */
+  --color-neutral-light-90: #eceeee;
+
+  /* Step inativo, Base Switch desligado */
+  --color-neutral-light-80: #dadedf;
+
+  /* Ícone desabilitado, Slider desabilitado, Borda de input */
+  --color-neutral-light-60: #b6bdbf;
+
+  /* Texto do Placeholder */
+  --color-neutral-light-40: #9da7a9;
+
+  /* Borda superior do itens do menu (45% de opacidade) */
+  --color-neutral-alpha-45: rgba(74, 92, 96, 0.45);
+
+  /* Background do Feedback, Pill de informação */
+  --color-neutral: #1E9585;
+
+  /* Usar em menu: Área do logo, Background do menu */
+  --color-neutral-dark-40: #2c3739;
+
+  /* Texto */
+  --color-neutral-dark-60: #1d2426;
+
+  /* Usar em sombras (10% de opacidade) */
+  --color-black-alpha-10: rgba(0, 0, 0, 0.1);
+
+  /* Usar em menu: Hover - Background de item de menu (15% de opacidade) */
+  --color-black-alpha-15: rgba(0, 0, 0, 0.15);
+
+  /* Usar em menu: Background dos itens de segundo nível (30% de opacidade) */
+  --color-black-alpha-30: rgba(0, 0, 0, 0.3);
+
+  --color-black: #000000;
+
+  /* Background do Feedback de sucesso */
+  --color-success: #00b28e;
+
+  /* Background do Feedback de atenção */
+  --color-warning: #ea9b3e;
+
+  --color-danger-light-40: #5c6d70;
+
+  /* Background do Feedback de erro, Borda de Input com erro */
+  --color-danger: #c64840;
+
+  /* Background disclaimer danger */
+  --color-danger-dark-5: #bb443c;
+
+  /* Hover para botão danger */
+  --color-danger-dark-20: #9e3933;
+
+  /* Estilo ativo para botão danger */
+  --color-danger-dark-40: #762b26;
+
+  --color-transparent: transparent;
+
+  /*------------------------------------*\
+    COLOR-PALETTE
+  \*------------------------------------*/
+
+  /* Cores que podem ser utilizadas na coluna de labels, legenda e cor de icones do componente table, também utilizadas na tag e badge */
+  --color-01: #0c9abe;
+  --color-02: #2c85c8;
+  --color-03: #2c43c8;
+  --color-04: #5843c8;
+  --color-05: #ab43c8;
+  --color-06: #ab4391;
+  --color-07: #c64840;
+  --color-08: #ea9b3e;
+  --color-09: #abc249;
+  --color-10: #56b96b;
+  --color-11: #00b28e;
+  --color-12: #06a6a5;
+
+  /*------------------------------------*\
+    FONT
+  \*------------------------------------*/
+
+  /**
+   * Variáveis para definições de fontes. O PO utiliza as variantes *extra light*, *regular* e *bold* em seus componentes e, para cada uma delas,
+   * é atribuído um @font-face específico. Os nomes elencados no `font-family` no @font-face devem ser os mesmos atribuídos como valor para as variáveis.
+   */
+  --font-family-theme: Roboto;
+  --font-family-theme-bold: Roboto-Bold;
+  --font-family-theme-extra-light: Roboto-Condensed-Light;
+}
+
+.presence {
+  margin-top: 32px;
+}
+
+.invisible {
+  display: none;
+}
+
+video {
+  border: 2px solid;
+  margin-top: 50px;
+}
+
+.hora-inicio {
+  font-family: var(--font-family-theme),sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  -webkit-appearance: textfield;
+  -moz-appearance: textfield;
+  appearance: textfield;
+  background-color: var(--color-input-background-color-text);
+  border: 1px solid var(--color-input-border-text);
+  border-radius: 3px;
+  box-shadow: inset 0 1px 8px 0 var(--color-black-alpha-10);
+  height: 44px;
+  padding: 0 16px;
+  width: 100%;
+  color: #1E9585;
+  margin-top: -30px !important;
+  margin-bottom: 10px;
+}
+
+.hora-fim {
+  font-family: var(--font-family-theme),sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  border-top: -20px;
+  -webkit-appearance: textfield;
+  -moz-appearance: textfield;
+  appearance: textfield;
+  background-color: var(--color-input-background-color-text);
+  border: 1px solid var(--color-input-border-text);
+  border-radius: 3px;
+  box-shadow: inset 0 1px 8px 0 var(--color-black-alpha-10);
+  height: 44px;
+  padding: 0 16px;
+  width: 100%;
+  color: #1E9585;
+  margin-top: -30px !important;
+  margin-bottom: 10px;
+}
+
+input[type="time"]::-webkit-calendar-picker-indicator{
+  position: relative;
+  left: 8px;
+  font-size: 18px;
+  cursor: pointer;
+  outline: none;
+  filter: invert(38%) sepia(13%) saturate(3207%) hue-rotate(130deg) brightness(95%) contrast(80%);
+}
+
+
+.filters {
+  height: 900px;
+}
+
+.po-menu {
+  background-color: var(--color-menu-background-color-menu);
+  display: flex;
+  flex-direction: column;
+  height: 93.5%;
+  top: 0;
+  position: fixed;
+  transition: all .2s ease;
+  width: 256px;
+  margin-top: 57px !important;
+}
+
+.po-icon-company {
+  font-size: 400%;
+}
+
+.po-page-content::-webkit-scrollbar-thumb {
+  overflow: hidden;
+}
+
+.po-navbar {
+  background-color: #1E9585 !important;
+}
+
+.po-radio-group-input-checked+.po-radio-group-label:before {
+  background-color: var(--color-radio-group-background-color-active);
+  border: 1px solid var(--color-radio-group-background-color-active);
+  color: var(--color-radio-group-color-label-active);
+  content: "\e93c";
+  font-family: PoIcon!important;
+  line-height: 18px;
+  padding-left: 2px;
+}
+
+.window {
+  width: 100% !important;
+  height: 100% !important;
+  background-color: #ffffff !important;
+  position: absolute !important;
+  z-index: 0;
+}
+
+

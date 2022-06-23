@@ -1,0 +1,81 @@
+<po-page-edit p-title="Cadastro de Disciplina" [p-breadcrumb]="breadcrumb" (p-calcel)="cancel()"
+    (p-save)="registerDiscipline()">
+    <po-tabs>
+        <po-tab p-active p-label="Nova Disciplina">
+            <form [formGroup]="disciplineForm">
+                <div class="po-row">
+                    <po-input class="po-md-6" formControlName="nome" name="nome" p-clean p-label="Nome da Disciplina"
+                        p-required> </po-input>
+
+                    <po-multiselect class="po-md-6" formControlName="turma" [p-options]="opcoesTurma" name="turma"
+                        p-label="Turma"> </po-multiselect>
+
+                    <po-select class="po-md-6" formControlName="responsavel" [p-options]="opcoesResponsavel"
+                        name="responsavel" p-label="Responsável"> </po-select>
+                </div>
+
+                <div class="po-row">
+                    <po-checkbox-group formControlName="periodo" class="po-md-6" name="periodo" p-columns="3"
+                        p-label="Período" [p-options]="[
+                                                        { value: '1', label: 'Matutino' },
+                                                        { value: '2', label: 'Vespertino' },
+                                                        { value: '3', label: 'Noturno' }
+                                                      ]">
+                    </po-checkbox-group>
+                </div>
+
+                <div class="po-row">
+                    <div class="po-md-2">
+                        <po-info class="info" p-label="Horário Início"></po-info>
+                        <input #horaInicio formControlName="horaInicio" type="time" class="hora-inicio po-md-6" name="hora-inicio"
+                            placeholder="HH:mm:ss" min="00:00:00" max="24:00:00" required />
+                    </div>
+                    <div class="po-md-2">
+                        <po-info class="info" p-label="Horário Fim"></po-info>
+                        <input formControlName="horaFim" type="time" class="hora-fim po-md-6" name="hora-fim"
+                            placeholder="HH:mm:ss" min="00:00:00" max="24:00:00" required />
+                    </div>
+                </div>
+
+                <div class="po-row">
+                    <po-number formControlName="qntdImagens" (click)="popupImagens.toggle()" class="po-md-2"
+                        #qntdImagens name="qntd-imagens" p-clean p-label="Quantidade de capturas por aula" p-required>
+                    </po-number>
+
+                    <po-number formControlName="qntdPresenca" (click)="popupPresenca.toggle()" class="po-md-2"
+                        #qntdPresenca name="qntd-presenca" p-clean p-label="Quantidade de presenças" p-required>
+                    </po-number>
+
+                    <po-number formControlName="cargaHoraria" (click)="popupCargaHoraria.toggle()" class="po-md-2"
+                        #cargaHoraria p-maxlength="2" p-max="60" name="carga-horaria" p-clean
+                        p-label="Carga horária da aula" p-required> </po-number>
+                </div>
+            </form>
+
+            <po-popup
+                [p-actions]="[{ label: 'Ex: Dentro de todo o período da aula, preciso que o sistema faça 5 capturas de presença.' }]"
+                #popupImagens p-position="bottom" [p-target]="qntdImagensRef">
+            </po-popup>
+
+            <po-popup
+                [p-actions]="[{ label: 'Ex: Da quantidade de capturas definidas por aula, se 3 tiverem sucesso no reconhecimento, poderá marcar a presença do aluno.' }]"
+                #popupPresenca p-position="bottom" [p-target]="qntdPresencaRef">
+            </po-popup>
+
+            <po-popup [p-actions]="[{ label: 'Ex: 45 minutos.' }]" #popupCargaHoraria p-position="bottom"
+                [p-target]="cargaHorariaRef">
+            </po-popup>
+        </po-tab>
+        <po-tab p-label="Disciplinas Cadastradas">
+            <po-table class="po-md-12" p-striped="true" p-hide-columns-manager p-sort="true"
+                [p-columns]="columnsDisciplineList" [p-items]="itemsDisciplineList">
+            </po-table>
+        </po-tab>
+    </po-tabs>
+    
+    <po-modal #modal [p-primary-action]="primaryAction" [p-secondary-action]="secondaryAction"
+        p-title="Excluir Disciplina">
+        Deseja excluir a disciplina selecionada?
+    </po-modal>
+
+</po-page-edit>

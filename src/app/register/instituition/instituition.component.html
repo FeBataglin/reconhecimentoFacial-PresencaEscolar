@@ -1,0 +1,53 @@
+<po-page-edit p-title="Cadastro de Instituição" [p-breadcrumb]="breadcrumb"
+    (p-save)="registerInstituition()">
+    <po-tabs>
+        <po-tab p-active p-label="Nova Instituição">
+            <form [formGroup]="instituitionForm">
+                <div class="po-row">
+                    <po-input class="po-md-10" name="instituicao" formControlName="instituicao"
+                        p-label="Nome da Instituiçao" p-required> </po-input>
+                </div>
+
+                <div class="po-row">
+                    <po-input class="po-md-5" p-mask="(99) 9999-99999" p-mask-format="true" name="telefone" formControlName="telefone" p-clean p-label="Telefone"
+                        p-required></po-input>
+
+                    <po-input class="po-md-5" p-mask="99.999.999/9999-99" p-mask-format="true" name="cnpj" formControlName="cnpj" p-clean p-label="CNPJ"> </po-input>
+                    
+                    <po-email class="po-md-10" p-icon="" name="email" formControlName="email" p-label="Email" p-optional> </po-email>
+
+                </div>
+
+                <div class="po-row">
+                    <po-input class="po-md-2" p-mask="99999-999" p-mask-format="true" name="cep" (focusout)="consultaCEP($event.target.value)"
+                        formControlName="cep" p-clean p-label="CEP"> </po-input>
+
+                    <po-input name="estado" class="po-md-4" [(ngModel)]="estado" formControlName="estado"
+                        p-label="Estado"> </po-input>
+
+                    <po-input name="cidade" class="po-md-4" [(ngModel)]="cidade" formControlName="cidade"
+                        p-label="Cidade"> </po-input>
+
+                    <po-input class="po-md-2" name="numero" formControlName="numero" p-clean p-label="Número">
+                    </po-input>
+
+                    <po-input class="po-md-6" name="rua" [(ngModel)]="rua" formControlName="rua" p-clean p-label="Rua">
+                    </po-input>
+
+                    <po-input class="po-md-6" name="bairro" [(ngModel)]="bairro" formControlName="bairro" p-clean
+                        p-label="Bairro"> </po-input>
+                </div>
+            </form>
+        </po-tab>
+        <po-tab p-label="Instituições Cadastradas">
+            <po-table class="po-md-12" p-striped="true" p-hide-columns-manager p-sort="true"
+                [p-columns]="columnsInstituitionList" [p-items]="itemsInstituitionList">
+            </po-table>
+        </po-tab>
+    </po-tabs>
+
+    <po-modal #modal [p-primary-action]="primaryAction" [p-secondary-action]="secondaryAction"
+        p-title="Excluir Instituição">
+        Deseja excluir a instituição selecionada?
+    </po-modal>
+</po-page-edit>

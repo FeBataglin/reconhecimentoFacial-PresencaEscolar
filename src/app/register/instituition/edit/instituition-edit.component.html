@@ -1,0 +1,40 @@
+<po-page-edit p-title="Edição de Instituição" [p-breadcrumb]="newBreadcrumb" (p-cancel)="cancel()"
+    (p-save)="registerInstituition()">
+
+    <form [formGroup]="instituitionEditForm">
+        <div class="po-row">
+            <po-input class="po-md-10" name="instituicao" [(ngModel)]="instituicao" formControlName="instituicao" p-label="Nome da Instituiçao"
+                p-required> </po-input>
+        </div>
+
+        <div class="po-row">
+            <po-input class="po-md-5" name="telefone" [(ngModel)]="telefone" formControlName="telefone" p-clean p-label="Telefone" p-required>
+            </po-input>
+
+            <po-input class="po-md-5" name="cnpj" [(ngModel)]="cnpj" formControlName="cnpj" p-clean p-label="CNPJ"> </po-input>
+
+            <po-input class="po-md-10" name="email" [(ngModel)]="email" formControlName="email" p-clean p-label="E-mail" p-optional>
+            </po-input>
+        </div>
+
+        <div class="po-row">
+            <po-input class="po-md-2" [(ngModel)]="cep" name="cep" formControlName="cep"
+                p-clean p-label="CEP"> </po-input>
+
+            <po-input name="estado" class="po-md-4" [(ngModel)]="estado" formControlName="estado" p-label="Estado">
+            </po-input>
+
+            <po-input name="cidade" class="po-md-4" [(ngModel)]="cidade" formControlName="cidade" p-label="Cidade">
+            </po-input>
+
+            <po-number class="po-md-2" name="numero" [(ngModel)]="numero" formControlName="numero" p-clean p-label="Número"> </po-number>
+
+            <po-input class="po-md-6" name="rua" [(ngModel)]="rua" formControlName="rua" p-clean p-label="Rua">
+            </po-input>
+
+            <po-input class="po-md-6" name="bairro" [(ngModel)]="bairro" formControlName="bairro" p-clean
+                p-label="Bairro"> </po-input>
+        </div>
+    </form>
+
+</po-page-edit>

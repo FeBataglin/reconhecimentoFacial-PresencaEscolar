@@ -1,0 +1,43 @@
+<po-page-default>
+    <div style="margin-top: 50px;" class="principalDiv po-md-12">
+        <po-loading-overlay p-text="Atualizando lista..."  [hidden]="isHideLoading"></po-loading-overlay>
+        <div class="filters po-md-3">
+            <po-datepicker 
+                name="datepicker"
+                class="datepicker"
+                p-format="dd/mm/yyyy"
+                [(ngModel)]="inputSearch"
+                (keyup)="onInput($event)"
+                (p-change)="onSearch($event)"
+                p-label="Data de Referência"> 
+            </po-datepicker>
+
+            <div *ngIf="disciplinesList.length > 0">
+                <p class="labels">Disciplinas</p>
+                <div *ngFor="let disciplines of disciplinesList | slice : 0 let i = index">
+                    <po-checkbox (p-change)="changeDisciplines(disciplines)" [checked]="checkbox" [(ngModel)]="disciplines.selected" [p-label]="disciplines.name"></po-checkbox>
+                </div>
+            </div>           
+
+            <po-button p-label="Limpar" (p-click)="onClearFilters()"> </po-button>
+        </div>
+        <div class="po-md-9">
+            <div *ngFor="let itemPresenceList of itemsPresenceList; let i = index" class="presence po-md-12">
+                <po-accordion>
+                    <po-accordion-item  class="po-md-12" [p-label]="disciplineName[i]">
+                        <po-table  
+                            class="po-md-12" 
+                            p-striped="true" 
+                            p-hide-columns-manager 
+                            p-sort="true" 
+                            (p-sort-by)="sort($event)"
+                            [p-columns]="columnsPresenceList" 
+                            [p-items]="itemsPresenceList[i]">
+                        </po-table>
+                        <po-divider></po-divider>
+                    </po-accordion-item>   
+                </po-accordion>
+            </div>
+         </div>
+    </div>
+</po-page-default>
