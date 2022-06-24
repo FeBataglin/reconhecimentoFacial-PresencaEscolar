@@ -1,0 +1,22 @@
+img[src=""],
+img:not([src]){
+  opacity: 0;
+  margin-top: 10px;
+}
+
+img[src="*"]{
+  opacity: 1;
+  margin-top: 10px;
+}
+
+
+.span {
+  position: relative;
+  left: 45%;
+}
+
+input[type='file'] {
+  color: transparent;
+  position: relative;
+  bottom: 33px;
+}

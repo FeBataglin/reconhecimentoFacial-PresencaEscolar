@@ -1,0 +1,48 @@
+<po-page-edit p-title="Cadastro de Turma" [p-breadcrumb]="breadcrumb"  (p-save)="registerClass()">
+
+  <po-tabs>
+    <po-tab p-active p-label="Nova Turma">
+      <form [formGroup]="classForm">
+        <div class="po-row">
+          <po-input class="po-md-6" formControlName="nome" name="nome" p-clean p-label="Nome da Turma" p-required>
+          </po-input>
+
+          <po-multiselect class="po-md-6" formControlName="instituicao" name="instituicao" p-label="Instituição"
+            [p-options]="opcoesInstituicao"> </po-multiselect>
+
+          <po-multiselect class="po-md-6" formControlName="curso" name="curso" p-label="Curso"
+            [p-options]="opcoesCurso"> </po-multiselect>
+        </div>
+
+        <div class="po-row">
+          <po-checkbox-group formControlName="periodo" class="po-md-6" name="periodo" p-columns="3" p-label="Período"
+            [p-options]="[
+                { value: '1', label: 'Matutino' },
+                { value: '2', label: 'Vespertino' },
+                { value: '3', label: 'Noturno' }
+              ]">
+          </po-checkbox-group>
+        </div>
+      </form>
+
+    </po-tab>
+    <po-tab p-label="Turmas Cadastradas">
+      <po-table  
+             class="po-md-12" 
+             p-striped="true" 
+             p-hide-columns-manager 
+             p-sort="true" 
+             [p-columns]="columnsClassList" 
+             [p-items]="itemsClassList">
+        </po-table>
+    </po-tab>
+  </po-tabs>
+
+  <po-modal
+      #modal
+      [p-primary-action]="primaryAction"
+      [p-secondary-action]="secondaryAction"
+      p-title="Excluir Turma">
+      Deseja excluir a turma selecionada?
+  </po-modal>
+</po-page-edit>

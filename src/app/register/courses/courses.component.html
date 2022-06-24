@@ -1,0 +1,61 @@
+<po-page-edit 
+    p-title="Cadastro de Curso" 
+    [p-breadcrumb]="breadcrumb" 
+    (p-save)="registerCourse()">
+    <po-tabs>
+      <po-tab p-active p-label="Novo Curso">
+        <form [formGroup]="courseForm">
+            <div class="po-row">
+                <po-input class="po-md-6" name="nome" formControlName="nome" p-clean p-label="Nome do Curso" p-required> </po-input>
+
+                <po-number class="po-md-6" name="codigo" formControlName="codigo" p-clean p-label="Código do curso" p-optional></po-number>
+            </div>
+
+            <div class="po-row">
+                <po-multiselect class="po-md-6" name="instituicao" formControlName="instituicao" p-label="Instituição" [p-options]="opcoesInstituicao"> </po-multiselect>
+            </div>
+
+            <div class="po-row">
+              <po-checkbox-group
+                formControlName="periodo"
+                class="po-md-6"
+                name="periodo"
+                p-columns="3"
+                p-label="Período"
+                [p-options]="[
+                  { value: '1', label: 'Matutino' },
+                  { value: '2', label: 'Vespertino' },
+                  { value: '3', label: 'Noturno' }
+                ]">
+              </po-checkbox-group>
+
+              <po-switch
+                class="po-md-12" 
+                name="ativo"
+                formControlName="ativo"
+                p-label="Ativo"
+                p-label-off="Não"
+                p-label-on="Sim">
+              </po-switch>
+            </div>
+        </form>
+      </po-tab>
+      <po-tab p-label="Cursos Cadastrados">
+        <po-table  
+               class="po-md-12" 
+               p-striped="true" 
+               p-hide-columns-manager 
+               p-sort="true" 
+               [p-columns]="columnsCourseList" 
+               [p-items]="itemsCourseList">
+          </po-table>
+      </po-tab>
+    </po-tabs>
+    <po-modal
+        #modal
+        [p-primary-action]="primaryAction"
+        [p-secondary-action]="secondaryAction"
+        p-title="Excluir Curso">
+        Deseja excluir o curso selecionado?
+    </po-modal>
+</po-page-edit>

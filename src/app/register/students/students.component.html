@@ -1,0 +1,56 @@
+<po-page-edit 
+    p-title="Cadastro de Aluno" 
+    [p-breadcrumb]="breadcrumb" 
+    (p-save)="registerStudent()">
+
+    <po-tabs>
+        <po-tab p-active p-label="Novo Aluno">
+            <form [formGroup]="studentForm">
+                <div class="po-row">
+                    <po-input class="po-md-6"  formControlName="nome"  p-label="Nome do Aluno" p-required> </po-input>
+
+                    <po-number class="po-md-6" formControlName="matricula" p-clean p-label="Matricula" p-required></po-number>
+
+                    <po-input class="po-md-6"  formControlName="email"  p-label="E-mail" p-required> </po-input>
+                </div>
+
+                <div class="po-row">
+                    <po-select class="po-md-6"  formControlName="instituicao" p-label="Instituicao" [p-options]="opcoesInstituicao" p-required> </po-select>
+
+                    <po-multiselect class="po-md-6"  formControlName="curso" p-label="Curso" [p-options]="opcoesCurso" p-required> </po-multiselect>
+
+                    <po-multiselect class="po-md-6"  formControlName="turma" p-label="Turma" [p-options]="opcoesTurma" p-required> </po-multiselect>
+
+                    <po-multiselect class="po-md-6" formControlName="disciplina"  p-label="Disciplinas" [p-options]="opcoesDisciplina" p-required> </po-multiselect> 
+                </div>
+            </form>
+            <div class="po-row">
+                <po-info
+                     class="po-md-12"
+                     p-label-size="16px"
+                     p-label="Selecionar imagens">
+                </po-info>
+                <input #files class="inputfile po-md-12" type="file"  accpet="*.png.jpg" title=" " (change)="upload($event)" multiple=true>
+            </div>
+
+            <div  class="po-md-1" *ngFor="let img of urls; let index = index">
+                <div class="img"> 
+                    <img class="imagem" style="border: hidden"  [src]="img" height="150px" width="120px">
+                </div>
+                <div>
+                    <span class="span delete po-icon po-icon-delete" title="Excluir" (click)="removeSelectedFile(index)"></span>
+                </div>
+            </div>
+
+        </po-tab>
+        <po-tab p-label="Alunos Cadastrados">
+            <po-table class="po-md-12" p-striped="true" p-hide-columns-manager p-sort="true"
+                [p-columns]="columnsStudentsList" [p-items]="itemsStudentsList">
+            </po-table>
+        </po-tab>
+    </po-tabs>
+
+    <po-modal #modal [p-primary-action]="primaryAction" [p-secondary-action]="secondaryAction" p-title="Excluir Curso">
+        Deseja excluir o aluno selecionado?
+    </po-modal>
+</po-page-edit>

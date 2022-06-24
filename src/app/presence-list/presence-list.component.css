@@ -1,0 +1,9 @@
+.labels {
+    font-family: var(--font-family-theme-bold),sans-serif;
+    font-size: 14px;
+    line-height: 24px;
+    color: var(--color-field-container-color-title);
+    display: table-cell;
+    vertical-align: sub;
+    width: 100%;
+}

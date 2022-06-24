@@ -1,0 +1,11 @@
+<div class="po-wrapper">
+  <po-navbar
+     p-literals="PoNavbarLiterals"
+     p-menu="PoMenuComponent"
+     p-shadow="true" >
+  </po-navbar>
+  <div *ngIf="!isHidden">
+    <po-menu [p-menus]="menuItems" p-filter></po-menu>
+  </div>
+  <router-outlet></router-outlet>
+</div>

@@ -1,0 +1,18 @@
+<po-page-default>
+    <video autoplay id="cam" width="100%" height="80%" muted></video>
+
+    <div class="invisible">
+        <input [(ngModel)]="studentsInput" style="width:800px" id="alunos"/>
+        <input [(ngModel)]="responsibleInput" style="width:800px" id="responsavel"/>
+        <input [(ngModel)]="disciplineNameInput" style="width:800px" id="disciplina"/>
+        <input style="width:800px" id="horaInicio"/>
+        <input style="width:800px" id="horaFim"/>
+        <button type="button" id="button" value="submit" (click)="getValues()"></button>
+        <input [(ngModel)]="disciplineNameInput" style="width:800px" id="data"/>
+    </div>  
+
+    <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-app.js"></script> 
+    <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-storage.js"></script> 
+    <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-firestore.js"></script>
+    <script type="text/javascript" src="../../assets/js/face-recognition.js"></script>
+</po-page-default>

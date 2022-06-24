@@ -1,0 +1,39 @@
+<po-page-edit p-title="Edição de Curso" [p-breadcrumb]="newBreadcrumb" (p-cancel)="cancel()" (p-save)="registerCourse()">
+  <form [formGroup]="courseEditForm">
+    <div class="po-row">
+        <po-input class="po-md-6" name="nome" [(ngModel)]="nome" formControlName="nome" p-clean p-label="Nome do Curso" p-required> </po-input>
+
+        <po-number class="po-md-6" name="codigo" [(ngModel)]="codigo" formControlName="codigo" p-clean p-label="Código do curso" p-optional></po-number>
+    </div>
+
+    <div class="po-row">
+        <po-multiselect class="po-md-6" name="instituicao" [(ngModel)]="instituicao" formControlName="instituicao" p-label="Instituição" [p-options]="opcoesInstituicao"> </po-multiselect>
+    </div>
+
+    <div class="po-row">
+      <po-checkbox-group
+        [(ngModel)]="periodo"
+        formControlName="periodo"
+        class="po-md-6"
+        name="periodo"
+        p-columns="3"
+        p-label="Período"
+        [p-options]="[
+          { value: '1', label: 'Matutino' },
+          { value: '2', label: 'Vespertino' },
+          { value: '3', label: 'Noturno' }
+        ]">
+      </po-checkbox-group>
+
+      <po-switch
+        [(ngModel)]="ativo"
+        class="po-md-12" 
+        name="ativo"
+        formControlName="ativo"
+        p-label="Ativo"
+        p-label-off="Não"
+        p-label-on="Sim">
+      </po-switch>
+    </div>
+</form>
+</po-page-edit  >

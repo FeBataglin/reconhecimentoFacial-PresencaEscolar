@@ -1,0 +1,24 @@
+<po-page-edit p-title="Edição de Turma" [p-breadcrumb]="newBreadcrumb" (p-cancel)="cancel()" (p-save)="registerClass()">
+      <form [formGroup]="classEditForm">
+        <div class="po-row">
+          <po-input class="po-md-6" [(ngModel)]="nome" formControlName="nome" name="nome" p-clean p-label="Nome da Turma" p-required>
+          </po-input>
+
+          <po-multiselect class="po-md-6" [(ngModel)]="instituicao" formControlName="instituicao" name="instituicao" p-label="Instituição"
+            [p-options]="opcoesInstituicao"> </po-multiselect>
+
+          <po-multiselect class="po-md-6" [(ngModel)]="curso" formControlName="curso" name="curso" p-label="Curso"
+            [p-options]="opcoesCurso"> </po-multiselect>
+        </div>
+
+        <div class="po-row">
+          <po-checkbox-group [(ngModel)]="periodo" formControlName="periodo" class="po-md-6" name="periodo" p-columns="3" p-label="Período"
+            [p-options]="[
+                { value: '1', label: 'Matutino' },
+                { value: '2', label: 'Vespertino' },
+                { value: '3', label: 'Noturno' }
+              ]">
+          </po-checkbox-group>
+        </div>
+      </form>
+</po-page-edit  >
