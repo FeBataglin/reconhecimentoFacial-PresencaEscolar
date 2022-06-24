@@ -1,0 +1,15 @@
+<po-page-default>
+    <div class="allCards ">
+        <div style="margin-top: 50px;" class="po-md-12 card">
+            <form [formGroup]="loginForm">
+                <po-input [(ngModel)]="user.email" formControlName="email" p-required="true" p-label="Matricula ou CPF"></po-input>
+
+                <po-password  [(ngModel)]="user.password" formControlName="password"  p-required="true" p-clean name="password" p-label="Senha"> </po-password>
+
+                <div class="vertical-center">
+                    <po-button class="button po-md-6" p-type="primary" type="submit"  (p-click)="loginUser(user)"  p-label="Acessar"></po-button>
+                </div>
+            </form>
+        </div>
+    </div>
+</po-page-default>

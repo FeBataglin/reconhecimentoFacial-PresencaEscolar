@@ -1,0 +1,99 @@
+<po-page-default>
+  <div style="margin-top: 50px;" class="principalDiv">
+
+    <div class="po-md-3">
+      <po-datepicker 
+        name="datepicker"
+        class="datepicker"
+        p-format="dd/mm/yyyy"
+        [(ngModel)]="inputSearch"
+        (keyup)="onInput($event)"
+        (p-change)="onSearch($event)"
+        p-label="Data de Referência"> 
+      </po-datepicker>
+
+      <po-input 
+        p-label="Nome do aluno"
+        [(ngModel)]="studentName"
+        (keyup)="onInputByName($event)"
+        (keyup.enter)="onSearchByName($event)">
+      </po-input>
+
+      <div *ngIf="disciplinesList.length > 0">
+        <p class="labels">Disciplinas</p>
+        <div *ngFor="let disciplines of disciplinesList | slice : 0 let i = index">
+          <po-checkbox (p-change)="changeDisciplines(disciplines)" [checked]="checkbox"
+            [(ngModel)]="disciplines.selected" [p-label]="disciplines.name"></po-checkbox>
+        </div>
+      </div>
+
+      <po-button p-label="Limpar" (p-click)="onClearFilters()"> </po-button>
+    </div>
+
+    <po-widget style="margin-top: 32px;" class="po-md-9">
+      <div class="po-row">
+        <div>
+          <po-loading-overlay p-text="Atualizando lista..."  [hidden]="isHideLoading"></po-loading-overlay>
+        </div>
+        <div class="po-md-12">
+          <po-divider class="po-divider-user"></po-divider>
+          <div class="po-row">
+            <div class="po-sm-4">
+              <p>Aluno</p>
+            </div>
+            <div class="po-sm-2">
+              <p>Disciplina</p>
+            </div>
+            <div class="po-sm-2">
+              <p>Data</p>
+            </div>
+            <div class="presenca po-sm-1">
+              <p>P</p>
+            </div>
+            <div class="presenca po-sm-1">
+              <p>F</p>
+            </div>
+            <div class="falta po-sm-1">
+              <p>FJ</p>
+            </div>
+            <div class="falta2 po-sm-1">
+              <p>FA</p>
+            </div>
+          </div>
+          <po-divider class="po-divider-user"></po-divider>
+        </div>
+      </div>
+      <div *ngFor="let item of itemsPresenceList; let i = index" class="po-row">
+        <div class="po-sm-12 no-padding">
+          <div class="po-row">
+            <po-info class="po-sm-4" p-value="{{item.nome}}">
+            </po-info>
+
+            <po-info class="po-sm-2" p-value="{{item.disciplina}}">
+            </po-info>
+
+            <po-info class="po-sm-2" p-value="{{item.data}}">
+            </po-info>
+
+            <po-radio-group
+              class="po-sm-4"
+              p-columns="4"
+              name="radioGroupBasic"
+              [(ngModel)]="item.presenceControl"
+              [p-options]="[
+                { label: '', value: '1' },
+                { label: '', value: '2' },
+                { label: '', value: '3' },
+                { label: '', value: '4' }
+              ]">
+            </po-radio-group>
+          </div>
+        </div>   
+      </div>
+      <po-divider></po-divider>
+      P = Presente / F = Falta / FJ = Falta Justificada / FA = Falta Abonada
+      <po-button class="save-button"  (p-click)="onSave(itemsPresenceList)" p-label="Salvar"></po-button>
+      <po-button p-type="danger" class="cancel-button" p-label="Limpar"></po-button>
+    </po-widget>
+  </div>
+</po-page-default>

@@ -1,0 +1,54 @@
+<po-page-default>
+    <!--<p class="dashTitle">Bem Vindo!</p>-->
+    <div class="allCards ">
+        <div [class.disabled-contenct]="!disabled" (click)="insituitionRegister()" class="card po-md-4">
+            <div class="container">
+                <fa-icon [icon]="universityIcon"></fa-icon>
+                <h4><b>Instituições</b></h4>
+            </div>
+        </div>
+        <div [class.disabled-contenct]="!disabled"  (click)="coursesRegister()" class="card po-md-4">
+            <div class="container">
+                <fa-icon [icon]="graduationCapIcon"></fa-icon>
+                <h4><b>Cursos</b></h4>
+            </div>
+        </div>
+        <div [class.disabled-contenct]="!disabled"  (click)="classesRegister()" class="card po-md-4">
+            <div class="container">
+                <fa-icon [icon]="chalkboardIcon"></fa-icon>
+                <h4><b>Turmas</b></h4>
+            </div>
+        </div>
+        <div [class.disabled-contenct]="!disabled"  (click)="disciplinesRegister()" class="card po-md-4">
+            <div class="container">
+                <fa-icon [icon]="notebookIcon"></fa-icon>
+                <h4><b>Disciplinas</b></h4>
+            </div>
+        </div>
+        <div [class.disabled-contenct]="!disabled"  (click)="responsiblesRegister()" class="card po-md-4">
+            <div class="container">
+                <fa-icon [icon]="teacherIcon"></fa-icon>
+                <h4><b>Responsáveis</b></h4>
+            </div>
+        </div>
+        <div [class.disabled-contenct]="!disabled"  (click)="studentsRegister()" class="card po-md-4">
+            <div class="container">
+                <fa-icon [icon]="studentsIcon"></fa-icon>
+                <h4><b>Alunos</b></h4>
+            </div>
+        </div>
+
+        <div (click)="presenceList()" class="card po-md-4">
+            <div class="container">
+                <fa-icon [icon]="clipboardCheckIcon"></fa-icon>
+                <h4><b>Lista de Presenças</b></h4>
+            </div>
+        </div>
+        <div [class.disabled-contenct]="!disabled"  (click)="manualPresence()" class="card po-md-4">
+            <div class="container">
+                <fa-icon [icon]="clipboardIcon"></fa-icon>
+                <h4><b>Chamada Manual</b></h4>
+            </div>
+        </div>
+    </div>
+</po-page-default>
